@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Kilina-2.1</string>
+    <string name="Headline">Подписка</string>
+    <string name="clean">Очистить</string>
+    <string name="ok">Ок</string>
+    <string name="login">Имя пользователя</string>
+    <string name="email">Email</string>
+    <string name="output"></string>
+</resources>
