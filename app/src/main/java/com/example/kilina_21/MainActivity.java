@@ -10,14 +10,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button button;
+    private Button buttonOk;
     private TextView textView;
+    private Button buttonClean;
 
-   /* EditText textLogin = (EditText) findViewById(R.id.personName);
-    String personName = textLogin.getText().toString();
-
-    EditText textEmail = (EditText) findViewById(R.id.email);
-    String email = textEmail.getText().toString();*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +24,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
-        button = findViewById(R.id.Ok);
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonOk = findViewById(R.id.Ok);
+        buttonClean = findViewById(R.id.clean);
+
+        final EditText textLogin = (EditText) findViewById(R.id.personName);
+        final EditText textEmail = (EditText) findViewById(R.id.email);
+        final TextView output = (TextView) findViewById(R.id.output);
+
+        buttonOk.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                //
+               if ((textEmail.getText().toString().equals("")) || (textLogin.getText().toString().equals(""))) {
+                    output.setText("Введите данные!");
+                } else {
+                    output.setText("Подписка на рассылку успешно оформлена для пользователя " + textLogin.getText().toString() + " на электронный адрес " + textEmail.getText().toString());
+                }
             }
         });
 
-        textView = findViewById(R.id.output); {
-            textView.setText("Подписка на рассылку успешно оформлена для пользователя"/* + personName + " на электронный адрес " + email*/);
-        }
+                buttonClean.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        textEmail.setText("");
+                        textLogin.setText("");
+                        output.setText("");
+                    }
+                });
+
+        textView = findViewById(R.id.output);
+
     }
 }
