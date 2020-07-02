@@ -24,33 +24,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+
         buttonOk = findViewById(R.id.Ok);
         buttonClean = findViewById(R.id.clean);
 
         final EditText textLogin = (EditText) findViewById(R.id.personName);
         final EditText textEmail = (EditText) findViewById(R.id.email);
         final TextView output = (TextView) findViewById(R.id.output);
+        final TextView output1 = (TextView) findViewById(R.id.output);
+
+        output.setText("");
 
         buttonOk.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-               if ((textEmail.getText().toString().equals("")) || (textLogin.getText().toString().equals(""))) {
-                    output.setText("Введите данные!");
+                if ((textEmail.getText().toString().equals("")) || (textLogin.getText().toString().equals(""))) {
+                    output.setText(R.string.output);
                 } else {
-                    output.setText("Подписка на рассылку успешно оформлена для пользователя " + textLogin.getText().toString() + " на электронный адрес " + textEmail.getText().toString());
+                    String result = getString(R.string.subscription1, textLogin.getText().toString(), textEmail.getText().toString());
+                    output.setText(result);
+
                 }
             }
         });
 
-                buttonClean.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        textEmail.setText("");
-                        textLogin.setText("");
-                        output.setText("");
-                    }
-                });
+        buttonClean.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textEmail.setText("");
+                textLogin.setText("");
+                output.setText("");
+            }
+        });
 
         textView = findViewById(R.id.output);
 
