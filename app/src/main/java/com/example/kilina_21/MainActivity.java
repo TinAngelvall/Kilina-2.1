@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         final EditText textLogin = (EditText) findViewById(R.id.personName);
         final EditText textEmail = (EditText) findViewById(R.id.email);
         final TextView output = (TextView) findViewById(R.id.output);
-        final TextView output1 = (TextView) findViewById(R.id.output);
 
         output.setText("");
 
