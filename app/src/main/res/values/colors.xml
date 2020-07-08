@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="ic_subscription_background">#6A81EA</color>
+    <color name="background_btn">#233EC3</color>
+    <color name="text">#000000</color>
+    <color name="background_ediText">#DA677BAC</color>
+    <color name="background_app">#BEE8F4</color>
 </resources>
